@@ -1,0 +1,60 @@
+@use 'colors';
+
+@mixin theme($bg, $txt, $box) {
+  .background {
+    background-color: $bg;
+  }
+
+  .text {
+    color: $txt;
+  }
+
+  .link-box {
+    background-color: $box;
+  }
+
+  .theme-color {
+    border: 2px solid $txt;
+  }
+
+  .theme__switch-color {
+    background-color: $txt;
+  }
+}
+
+body {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  padding: clamp(1.2rem, 2.2vw, 2rem) clamp(1.2rem, 3.2vw, 3rem);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.light {
+  @include theme(colors.$white, colors.$black, colors.$yellow);
+
+  .text {
+    font-weight: 600 !important;
+  }
+
+  .theme__switch-color {
+    transform: translateX(100%) !important;
+  }
+}
+
+.dark {
+  @include theme(colors.$black, colors.$white, colors.$grey);
+}
