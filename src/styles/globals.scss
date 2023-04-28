@@ -1,5 +1,10 @@
+// import custom colors
 @use 'colors';
 
+// import font-weights
+@use 'font-weights' as font;
+
+// General mixin for light and dark modes
 @mixin theme($bg, $txt, $box) {
   .background {
     background-color: $bg;
@@ -13,41 +18,50 @@
     background-color: $box;
   }
 
-  .theme-color {
-    border: 2px solid $txt;
-  }
-
   .theme__switch-color {
     background-color: $txt;
   }
+
+  .border {    
+    border: 1px solid $txt;
+  }
 }
 
+// Body reset
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   margin: 0;
-  padding: 0;
+  overflow-y: hidden; // The .wrapper needs to take 100vh and more if an overflow happens.
 }
 
+// This the main wrapper of the project (Not the body) because we need it to change themes (dark/light modes).
 .wrapper {
+  box-sizing: border-box;
   height: 100vh;
+  overflow-y: scroll;
   padding: clamp(1.2rem, 2.2vw, 2rem) clamp(1.2rem, 3.2vw, 3rem);
 }
 
+// Link reset
 a {
+  color: colors.$white;
   text-decoration: none;
 }
 
+// unordered list reset
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
+
+// light theme
 .light {
   @include theme(colors.$white, colors.$black, colors.$yellow);
 
   .text {
-    font-weight: 600 !important;
+    font-weight: font.$medium;
   }
 
   .theme__switch-color {
@@ -55,6 +69,37 @@ ul {
   }
 }
 
+// dark theme
 .dark {
   @include theme(colors.$black, colors.$white, colors.$grey);
+}
+
+.non-draggable {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+// Primary title style
+.title {
+  margin: 0 {
+    top: clamp(3rem, 7vw, 5rem);
+  };
+  width: fit-content;
+
+  &__text {
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    font-weight: font.$medium;
+    margin: 0;
+  }
+
+  &__line {
+    border-width: clamp(2px, .5vw, 3px) !important;
+    margin: 0 {
+      top: clamp(.2rem, .5vw, .4rem);
+    };
+    width: 50%;
+  }
 }

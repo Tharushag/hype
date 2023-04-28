@@ -10,7 +10,7 @@ function ThemeSwitch(props) {
   }
 
   return (
-    <li className={ `${styles['theme']} theme-color` } onClick={ handleClick } >
+    <li className={ `${styles['theme']} border` } onClick={ handleClick } >
       <div className={ `${styles['theme__switch']} theme__switch-color` }></div>
     </li>
   );

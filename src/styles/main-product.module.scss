@@ -1,0 +1,92 @@
+// Import custom colors
+@use 'colors';
+
+@use 'font-weights' as font;
+
+// Import Google fonts Orbitron
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+// Landing page - Main product
+.product {
+  display: flex;
+  justify-content: space-between;
+  margin-top: clamp(3rem, 8vw, 7rem); // Margin from the navigation bar
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  &__title {
+    font-family: "Orbitron";
+    font-size: clamp(2.3rem, 7.5vw, 7rem);
+    font-weight: font.$semi-bold;
+    line-height: 100%;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  &__image {
+    border-radius: 4vw;
+    height: auto;
+    width: 42vw; // Must take up aroud half the space of the viewport because it's in flex with the description
+  }
+
+  &__info {
+    font-size: 1rem;
+  }
+
+  // Product buy button
+  &__buy {
+    background-color: transparent !important;
+    border-radius: 0;
+    display: flex;
+    font-family: "Montserrat", Arial, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: font.$regular !important;
+    gap: .5rem;
+    text-transform: none;
+    transition: none;
+    width: fit-content !important;
+  }
+}
+
+// Mobile version
+@media (max-width: 700px) {
+  .product {
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 2rem;
+
+    &__image {
+      width: 20rem;
+    }
+
+    &__description {
+      align-items: center;
+    }  
+
+    &__title {
+      text-align: justify;
+    }
+
+    &__info {
+      font-size: clamp(.7rem, 2.5vw, 1rem);
+      text-align: justify;
+      width: 30ch;
+    }
+
+    &__buy {
+      font-size: clamp(.8rem, 1.5vw, 1rem);
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .product {
+    &__image {
+      width: 100%;
+    }
+  }
+}

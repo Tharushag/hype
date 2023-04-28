@@ -1,4 +1,8 @@
+// import custom colors
 @use 'colors';
+
+// import font-weights
+@use 'font-weights' as font;
 
 .navbar {
   align-items: flex-end;
@@ -8,17 +12,19 @@
   &__logo {
     color: colors.$yellow;
     font-size: clamp(1rem, 2vw, 1.5rem);
-    font-weight: 600;
+    font-weight: font.$semi-bold;
     letter-spacing: clamp(.5rem, 1.2vw, 1rem);
   }
 }
 
+// <ul> that has the primary links
 .nav_list {
   align-items: flex-end;
   display: flex;
   gap: clamp(1rem, 2.2vw, 2rem);
 }
 
+// <li> wrapping the primary links
 .nav_item {
   align-items: center;
   display: flex;
@@ -31,7 +37,7 @@
     letter-spacing: .3rem;
   }
 
-  &__box {
+  &__box { // <div> behind the link
     height: 100%;
     position: absolute;
     right: -.25rem;
@@ -40,9 +46,11 @@
   }
 }
 
+// theme change button
 .theme {
   align-items: center;
   border-radius: 10rem;
+  border-width: 2px !important;
   cursor: pointer;
   height: clamp(.6rem, 1.3vw, .9rem);
   padding: .2rem;
