@@ -50,6 +50,14 @@
     transition: none;
     width: fit-content !important;
   }
+
+  &__arrow {
+    transition: transform 400ms;
+  }
+
+  &__buy-hover:hover > &__arrow {
+    transform: translateX(5px);
+  }
 }
 
 // Mobile version

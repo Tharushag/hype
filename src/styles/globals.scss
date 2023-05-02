@@ -5,7 +5,7 @@
 @use 'font-weights' as font;
 
 // General mixin for light and dark modes
-@mixin theme($bg, $txt, $box) {
+@mixin theme($bg, $txt, $box, $selection, $btn) {
   .background {
     background-color: $bg;
   }
@@ -25,13 +25,20 @@
   .border {    
     border: 1px solid $txt;
   }
+
+  .selected {
+    background-color: $selection;
+  }
+
+  .checkout_btn {
+    background-color: $btn;
+  }
 }
 
 // Body reset
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   margin: 0;
-  overflow-y: hidden; // The .wrapper needs to take 100vh and more if an overflow happens.
 }
 
 // This the main wrapper of the project (Not the body) because we need it to change themes (dark/light modes).
@@ -39,13 +46,17 @@ body {
   box-sizing: border-box;
   height: 100vh;
   overflow-y: scroll;
+  overflow-x: hidden; // For development only
   padding: clamp(1.2rem, 2.2vw, 2rem) clamp(1.2rem, 3.2vw, 3rem);
+  padding-bottom: 5rem;
 }
 
 // Link reset
 a {
   color: colors.$white;
+  display: block;
   text-decoration: none;
+  width: fit-content;
 }
 
 // unordered list reset
@@ -55,10 +66,9 @@ ul {
   padding: 0;
 }
 
-
 // light theme
 .light {
-  @include theme(colors.$white, colors.$black, colors.$yellow);
+  @include theme(colors.$white, colors.$black, colors.$yellow, rgba(57, 62, 70, .3), #222831);
 
   .text {
     font-weight: font.$medium;
@@ -71,7 +81,7 @@ ul {
 
 // dark theme
 .dark {
-  @include theme(colors.$black, colors.$white, colors.$grey);
+  @include theme(colors.$black, colors.$white, colors.$grey, colors.$grey, colors.$grey);
 }
 
 .non-draggable {
@@ -101,5 +111,34 @@ ul {
       top: clamp(.2rem, .5vw, .4rem);
     };
     width: 50%;
+  }
+}
+
+// custom checkbox style
+
+.checkbox {
+  border-width: 2px !important;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 1rem;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.3rem;
+  position: relative;
+  z-index: 20;
+
+  &__icon {
+    font-size: 1rem !important;
+
+    &--visibility-false {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .checkbox {
+    display: none;
   }
 }
