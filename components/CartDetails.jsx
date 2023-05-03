@@ -1,5 +1,5 @@
 import ColorSwitch from "./ColorSwitch";
-import BasicSelect from "./BasicSelect";
+import ClassicSelect from "./ClassicSelect";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -16,8 +16,8 @@ function CartDetails() {
 
       <div className={ styles['cart_details__options'] }>
         <ColorSwitch />
-        <BasicSelect items={ ['XL_title', 'XL', 'L', 'M', 'S'] } />
-        <BasicSelect items={ ['qty_title', '1', '2', '3'] } />
+        <ClassicSelect items={ ['XL_title', 'XL', 'L', 'M', 'S'] } />
+        <ClassicSelect items={ ['qty_title', '1', '2', '3'] } />
       </div>
 
       <IconButton className={ styles['delete_btn'] } aria-label="delete" size="large">

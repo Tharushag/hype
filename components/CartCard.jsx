@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { ThemeContext } from "./ThemeContext";
 
 import Image from "next/image";
 import watchImg from "../assets/watch.png";
@@ -10,7 +9,6 @@ import CartDetails from "./CartDetails";
 import styles from "@/styles/cart.module.scss";
 
 function CartCard() {
-  const { theme } = useContext(ThemeContext);
   const [check, setCheck] = useState(false);
 
   function handleCheck() {
@@ -18,7 +16,7 @@ function CartCard() {
   }
 
   return (
-    <div style={ theme === 'light' ? {borderWidth: '2px'} : {} } className={ `${styles['cart']} border` }>
+    <div className={ `${styles['cart']} border` }>
       <CheckBox onClick={ handleCheck } check={ check } />
       <Image src={ watchImg } className={ styles['cart__image'] } alt="product" />
       <CartDetails />

@@ -5,7 +5,7 @@
 @use 'font-weights' as font;
 
 // General mixin for light and dark modes
-@mixin theme($bg, $txt, $box, $selection, $btn) {
+@mixin theme($bg, $txt, $box, $selection, $btn, $bar) {
   .background {
     background-color: $bg;
   }
@@ -32,6 +32,10 @@
 
   .checkout_btn {
     background-color: $btn;
+  }
+
+  .progress_bar {
+    background-color: $bar;
   }
 }
 
@@ -68,7 +72,7 @@ ul {
 
 // light theme
 .light {
-  @include theme(colors.$white, colors.$black, colors.$yellow, rgba(57, 62, 70, .3), #222831);
+  @include theme(colors.$white, colors.$black, colors.$yellow, rgba(57, 62, 70, .3), #222831, rgba(57, 62, 70,  .2));
 
   .text {
     font-weight: font.$medium;
@@ -81,7 +85,7 @@ ul {
 
 // dark theme
 .dark {
-  @include theme(colors.$black, colors.$white, colors.$grey, colors.$grey, colors.$grey);
+  @include theme(colors.$black, colors.$white, colors.$grey, colors.$grey, colors.$grey, rgba(238, 238, 238, .2));
 }
 
 .non-draggable {
@@ -140,5 +144,48 @@ ul {
 @media (max-width: 1000px) {
   .checkbox {
     display: none;
+  }
+}
+
+.textfield {
+  opacity: .5;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+
+  &__label {
+    position: absolute;
+    transition: font-size 500ms, transform 500ms;
+    z-index: -1;
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    font-family: "Montserrat", Arial, Verdana, sans-serif;
+    font-size: 1rem;
+    outline: none;
+    padding: 0 { bottom: .25rem };
+    width: 100%;
+  }
+}
+
+.textfield--focus-true:focus-within {
+  opacity: 1;
+}
+
+.textfield--focus-true:focus-within > .textfield__label--focus-true {
+  font-size: .7rem;
+  opacity: .5;
+  transform: translateY(-1rem);
+}
+
+.textfield:has(.textfield__input:not(:placeholder-shown)) {
+  opacity: 1;
+
+  .textfield__label {
+    font-size: .7rem;
+    opacity: .5;
+    transform: translateY(-1rem);
   }
 }

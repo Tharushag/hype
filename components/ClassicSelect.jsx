@@ -8,7 +8,7 @@ function createOptions(name, index) {
   return <option className='background' key={ index } value={ name }>{ name }</option>;
 }
 
-function BasicSelect(props) {
+function ClassicSelect(props) {
   return (
     <select className={ `${styles['cart_details__options__select']} text` }>
       { props.items.map(createOptions) }
@@ -16,4 +16,4 @@ function BasicSelect(props) {
   );
 }
 
-export default BasicSelect;
+export default ClassicSelect;

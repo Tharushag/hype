@@ -1,0 +1,138 @@
+@use 'colors';
+@use 'font-weights' as font;
+
+.wrapper {
+  display: flex;
+  gap: 15rem;
+  margin-top: 6rem;
+}
+
+@media (max-width: 1350px) {
+  .wrapper {
+    gap: 10rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  .wrapper {
+    gap: 5rem;
+  }
+}
+
+.cartsummary {
+  width: fit-content;
+}
+
+// contains the 4 product images
+.summary {
+  border-radius: 2rem;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .25);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 1.5rem; 
+  overflow: hidden;
+  width: 30rem;
+
+  &__image {
+    height: 10rem;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+// contains the total price
+.total {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+
+  // <p> reset
+  & > p {
+    margin: 0;
+  }
+
+  &__label {
+    font-size: 1.3rem;
+    font-weight: font.$semi-bold;
+  }
+
+  &__price {
+    font-size: 2rem;
+    font-weight: font.$semi-bold;
+  }
+}
+
+.formbox {
+  height: fit-content;
+  width: 100%;
+}
+
+.progress {
+  height: .5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+
+  &__bar {
+    background-color: #4A90E2;
+    height: .5rem;
+    position: absolute;
+  }
+}
+
+.formdropdown {
+  &__button {
+    align-items: center;
+    background-color: transparent !important;
+    border-radius: 10px !important;
+    cursor: pointer;
+    display: flex;
+    font-family: "Montserrat", Arial, Verdana, sans-serif !important;
+    justify-content: space-between !important;
+    text-transform: none !important;
+    transition: none;
+    padding: .4rem .8rem !important;
+    width: 100%;
+  }  
+}
+
+.menubar {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  width: 2rem;  
+
+  &__hr {
+    margin: 0;
+  }
+
+  &__hr:last-child {
+    width: 60%;
+  }
+}
+
+.billinginfo_wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms, padding 500ms;
+}
+
+.billinginfo_wrapper--open {
+  grid-template-rows: 1fr;
+  padding-top: 1rem;
+
+  .billinginfo {
+    padding-top: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.billinginfo {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  margin-bottom: 1.6rem;
+  transition: padding-top 500ms, margin-bottom 500ms;
+}
