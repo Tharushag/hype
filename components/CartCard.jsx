@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 
 import Image from "next/image";
-import watchImg from "../assets/watch.png";
 
 import CheckBox from "./CheckBox";
 import CartDetails from "./CartDetails";
 
 import styles from "@/styles/cart.module.scss";
 
-function CartCard() {
+function CartCard(props) {
+
   const [check, setCheck] = useState(false);
 
   function handleCheck() {
@@ -18,8 +18,8 @@ function CartCard() {
   return (
     <div className={ `${styles['cart']} border` }>
       <CheckBox onClick={ handleCheck } check={ check } />
-      <Image src={ watchImg } className={ styles['cart__image'] } alt="product" />
-      <CartDetails />
+      <Image src={ props.product.image } className={ styles['cart__image'] } alt="product" priority />
+      <CartDetails product={ props.product } />
       <div onClick={ handleCheck } className={ `${styles['cart__overlay']} ${check && 'selected'}` } ></div>
     </div>
   );

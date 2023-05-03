@@ -18,7 +18,7 @@ function TotalCard() {
 
       <div className={ `${styles['cart_total__row']} ${styles['cart_total__row_bold']}` }>
         <p>Total</p>
-        <p>$10</p>
+        <p>$10.50</p>
       </div>
       <a href='/checkout' className={ styles['cart_total__checkout_link'] }>
         <Button variant="contained" className={`${styles['cart_total__checkout_btn']} checkout_btn`}>Checkout</Button>

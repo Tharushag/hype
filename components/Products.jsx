@@ -1,18 +1,21 @@
+import { products } from "../src/pages/api/productData";
+
 import Title from "./Title";
 import ProductCard from "./ProductCard";
+
 import styles from "@/styles/products.module.scss";
 
 function Products() {
+  function createProductCard(item, index) {
+    return <ProductCard key={ index } img={ item.image } description={ item.description } price={ item.price } />;
+  }
+
   return (
     <>
       <Title text="Discover more products!" />
 
       <div className={ styles['product_box'] }>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        { products.map(createProductCard) }
       </div>
     </>
   );

@@ -32,20 +32,22 @@
 }
 
 .cart {
-  align-items: flex-start;
   border-width: 2px !important;
   border-radius: 10px;
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: auto 15rem 1fr 3rem;
+  gap: 2rem;
   padding: 1.5rem 1rem;
   position: relative;
   z-index: 10;
 
   &__image {
     border-radius: 10px;
-    height: auto;
-    width: clamp(5rem, 11vw, 10rem);
+    height: 100%;
+    justify-self: start;
+    object-fit: cover;
     position: relative;
+    width: 100%;
     z-index: 20;
   }
 
@@ -61,12 +63,31 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .cart {
+    grid-template-columns: 15rem 1fr 3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .cart {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+
+    &__image {
+      height: 10rem;
+      width: 100%;
+    }
+  }
+}
+
 .cart_details {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
   height: 100%;
-  justify-content: space-between;
   width: 100%;
 
   &__titlebox {
@@ -128,12 +149,48 @@
   }
 }
 
+.cart-edge {
+  position: relative;
+  z-index: 20;
+
+  &__h1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
 .delete_btn {
-  bottom: .5rem;
+  bottom: 0;
   color: #D94F4F;
   position: absolute;
-  right: 1rem;
-  z-index: 20;
+}
+
+@media (max-width: 650px) {
+  .cart-edge {
+    align-items: flex-end;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    position: absolute;
+    right: 1rem;
+
+    &__h1 {
+      position: static;
+    }
+  }
+
+  .delete_btn {
+    position: relative;
+    transform: translate(1rem, .8rem);
+  }
+}
+
+@media (max-width: 336px) {
+  .cart-edge {
+    gap: 3.15rem;
+  }
 }
 
 .cart_total {
@@ -176,26 +233,5 @@
     text-transform: none;
     transition: none;
     width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .cart {
-    flex-direction: column;
-
-    &__image {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-
-  .cart_details {
-    &__titlebox {
-      padding: 0;
-    }
-  }
-
-  .delete_btn {
-    right: 0;
   }
 }
