@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 
+import MenuBar from "./MenuBar";
 import Button from '@mui/material/Button';
-import ClassicTextField from "./ClassicTextField";
 
 import styles from "@/styles/checkout.module.scss";
 
-function FormDropdown() {
+function FormDropdown(props) {
+  const  { children } = props;
+
   const { theme } = useContext(ThemeContext);
   const [billingInfoIsOpen, setBillingInfoIsOpen] = useState(false);
 
@@ -21,21 +23,13 @@ function FormDropdown() {
         className={ `${styles['formdropdown__button']} text border` }
         onClick={ handleBillingInfoClick }
       >
-        Billing information
+        { props.title }
 
-        <div className={ styles['menubar'] }>
-          <hr className={ `${styles['menubar__hr']} border` } />
-          <hr className={ `${styles['menubar__hr']} border` } />
-        </div>
+        <MenuBar />
       </Button>
 
-      <div className={ `${styles['billinginfo_wrapper']} ${billingInfoIsOpen && styles['billinginfo_wrapper--open']}` }>
-        <form className={ styles['billinginfo'] }>
-          <ClassicTextField label="Full name" type="text" name="fullName" />
-          <ClassicTextField label="Phone" type="text" name="phone" />
-          <ClassicTextField label="Email" type="email" name="email" />
-          <ClassicTextField label="Address" type="address" name="address" />
-        </form>
+      <div className={ `${styles['form_wrapper']} ${billingInfoIsOpen && styles['form_wrapper--open']}` }>
+        { children }
       </div>
     </div>
   );

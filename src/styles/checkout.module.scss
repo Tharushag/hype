@@ -78,6 +78,7 @@
     background-color: #4A90E2;
     height: .5rem;
     position: absolute;
+    transition: width 1s;
   }
 }
 
@@ -112,13 +113,13 @@
   }
 }
 
-.billinginfo_wrapper {
+.form_wrapper {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 500ms, padding 500ms;
 }
 
-.billinginfo_wrapper--open {
+.form_wrapper--open {
   grid-template-rows: 1fr;
   padding-top: 1rem;
 
