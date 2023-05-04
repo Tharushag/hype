@@ -1,10 +1,8 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../components/ThemeContext";
+import { ThemeContext } from "../../../components/ThemeContext";
 
 import Head from "next/head";
-import Navbar from "../../components/Navbar";
-import MainProduct from "../../components/MainProduct";
-import ProductList from "../../components/ProductList";
+import Navbar from "../../../components/Navbar";
 
 export default function Home() {
   const { theme } = useContext(ThemeContext);
@@ -21,8 +19,6 @@ export default function Home() {
       <div className={ theme }>
         <div className='background wrapper'>
           <Navbar />
-          <MainProduct />
-          <ProductList />
         </div>
       </div>
     </>

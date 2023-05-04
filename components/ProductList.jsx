@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 
 import styles from "@/styles/products.module.scss";
 
-function Products() {
+function ProductList() {
   function createProductCard(item, index) {
     return <ProductCard key={ index } img={ item.image } description={ item.description } price={ item.price } />;
   }
@@ -21,4 +21,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ProductList;

@@ -56,7 +56,7 @@ function BillingInfoForm() {
   }
 
   return (
-    <form className={ styles['billinginfo'] }>
+    <form className={ styles['checkout_method'] }>
       <ClassicTextField label="Full name" type="text" name="fullName" onInput={ handleChange } value={ input.fullName } />
       <ClassicTextField label="Phone" type="text" name="phone" onInput={ handleChange } value={ input.phone } />
       <ClassicTextField label="Email" type="email" name="email" onInput={ handleChange } value={ input.email } />
