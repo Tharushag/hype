@@ -3,10 +3,7 @@ import { ThemeContext } from "../../components/ThemeContext";
 
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
-import CartSummary from "../../components/CartSummary";
-import FormBox from "../../components/FormBox";
-
-import styles from "@/styles/checkout.module.scss";
+import Product from "../../components/Product";
 
 export default function Home() {
   const { theme } = useContext(ThemeContext);
@@ -18,10 +15,8 @@ export default function Home() {
       <div className={ theme }>
         <div className='background wrapper'>
           <Navbar />
-          <div className={ styles['wrapper'] }>
-            <CartSummary />
-            <FormBox />
-          </div>
+          
+          <Product />
         </div>
       </div>
     </>

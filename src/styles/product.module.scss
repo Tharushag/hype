@@ -1,0 +1,91 @@
+@use "font-weights" as fw;
+@use "colors";
+
+.wrapper {
+  p, h1 {
+    margin: 0;
+  }
+}
+
+.product {
+  border: 1px solid red;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__info {
+    display: grid;
+    gap: 1rem;
+
+    &__title {
+      font-size: 2.5rem;
+      font-weight: fw.$extra-bold !important;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+      font-weight: fw.$light;
+
+      &--weight-regular {
+        font-weight: fw.$regular !important;
+      }
+    }
+
+    &__customization {
+      display: flex;
+      gap: 2rem;
+    }
+
+    &__button {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+
+      &__buy, &__cart {
+        border-radius: 12px !important;
+        font-family: "Montserrat", Arial, Verdana, sans-serif !important;
+        font-weight: fw.$regular !important;
+        text-transform: none !important;
+        transition: box-shadow 500ms !important;
+        width: 11rem;
+      }
+      &__buy:hover, &__cart:hover {
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, .4) !important;
+      }
+
+      &__buy {
+        background-color: colors.$blue !important;
+      }
+
+      &__cart {
+        background-color: transparent !important;
+        display: flex;
+        gap: .5rem;
+      }
+
+      &__cart--theme-light {
+        border-width: 2px !important;
+        font-weight: fw.$medium !important;
+      }
+    }
+  }
+
+  &__imgbox {
+    display: flex;
+    gap: 2.5rem;
+    height: 100%;
+    width: 100%;
+
+    &__hr {
+      margin: 0;
+    }
+  }
+}
+
+.stock {
+  background-color: colors.$red;
+  color: colors.$white;
+  font-size: .7rem;
+  padding: .25rem .6rem;
+  width: fit-content;
+}

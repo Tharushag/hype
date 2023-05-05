@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
+
 import styles from "@/styles/navbar.module.scss";
 
 function ThemeSwitch(props) {

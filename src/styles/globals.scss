@@ -98,9 +98,7 @@ ul {
 
 // Primary title style
 .title {
-  margin: 0 {
-    top: clamp(3rem, 7vw, 5rem);
-  };
+  margin: 0;
   width: fit-content;
 
   &__text {

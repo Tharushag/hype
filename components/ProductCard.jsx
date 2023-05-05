@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
-import styles from "@/styles/products.module.scss";
+import styles from "@/styles/product-list.module.scss";
 
 function ProductCard(props) {
   const {img, price, description} = props;

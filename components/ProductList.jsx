@@ -3,7 +3,7 @@ import { products } from "../src/pages/api/productData";
 import Title from "./Title";
 import ProductCard from "./ProductCard";
 
-import styles from "@/styles/products.module.scss";
+import styles from "@/styles/product-list.module.scss";
 
 function ProductList() {
   function createProductCard(item, index) {
