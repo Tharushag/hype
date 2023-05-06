@@ -37,7 +37,7 @@ function ProductInfo() {
           ${theme === 'light' && styles['product__info__button__cart--theme-light']} 
           border text`}
         >
-          <ShoppingCartOutlinedIcon className='text' /> Add to cart
+          <ShoppingCartOutlinedIcon className={`${styles['product__info__button__cart__icon']} text`} /> Add to cart
         </Button>
       </div>
     </div>

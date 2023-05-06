@@ -16,7 +16,7 @@ function ProductCard(props) {
 
   return (
     <div className={ `${styles['product']} ${styles['product--hover']}` }>
-      <a href='/product' className={ styles['product__link'] }> 
+      <a href='/products' className={ styles['product__link'] }> 
         <Image src={ img } className={ `${styles['product__image']} non-draggable` } alt="Product image" priority />
       </a> 
       <div className={ `${styles['product__info']} ${styles['product__info--open']}` }>

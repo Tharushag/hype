@@ -1,7 +1,6 @@
-import Image from "next/image";
+import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";
-
-import watchImg from "../assets/watch.png";
+import Share from "./Share";
 
 import styles from "@/styles/product.module.scss";
 
@@ -9,10 +8,9 @@ function Product() {
   return (
     <div className={ styles['wrapper'] }>
       <div className={ styles['product'] }>
-        <div className={ styles['product__imgbox'] }>
-          <hr className={ styles['product__imgbox__hr'] } />
-        </div>
+        <ProductImage />
         <ProductInfo />
+        <Share />
       </div>
     </div>
   );

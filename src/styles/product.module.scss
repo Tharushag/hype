@@ -8,23 +8,24 @@
 }
 
 .product {
-  border: 1px solid red;
   display: grid;
-  gap: 4rem;
-  grid-template-columns: repeat(2, 1fr);
+  gap: 5vw;
+  grid-template-columns: 1fr auto auto 1fr;
 
   &__info {
     display: grid;
-    gap: 1rem;
+    gap: clamp(1rem, 3vw, 1rem);
 
     &__title {
-      font-size: 2.5rem;
+      font-size: clamp(1.5rem, 4.5vw, 2.5rem);
       font-weight: fw.$extra-bold !important;
+      line-height: 100%;
     }
 
     &__description {
-      font-size: 1.2rem;
+      font-size: clamp(.9rem, 3.2vw, 1.2rem);
       font-weight: fw.$light;
+      text-align: justify;
 
       &--weight-regular {
         font-weight: fw.$regular !important;
@@ -75,9 +76,71 @@
     gap: 2.5rem;
     height: 100%;
     width: 100%;
+    position: relative;
 
-    &__hr {
-      margin: 0;
+    &__img {
+      border-radius: 2rem;
+      object-fit: cover;
+    }
+  }
+
+  &__carousal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+
+    &__slide {
+      border-radius: 50%;
+      cursor: pointer;
+      height: .8rem;
+      opacity: .3;
+      width: .8rem;
+
+      &--active {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  &__hr {
+    margin: 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .product {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .product {
+    grid-template-columns: 1fr;
+
+    &__info {
+      &__button {
+        gap: 1rem;
+
+        &__buy, &__cart {
+          width: 100%;
+          font-size: .8rem;
+        }
+
+        &__cart {
+          &__icon {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+
+    &__imgbox {
+      height: 50vw;
+    }
+
+    &__carousal {
+      flex-direction: row;
     }
   }
 }
@@ -88,4 +151,32 @@
   font-size: .7rem;
   padding: .25rem .6rem;
   width: fit-content;
+}
+
+.share {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+
+  &__copy {
+    background-color: colors.$grey;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    opacity: .5;
+    padding: .5rem;
+    width: fit-content;
+
+    &--click:active {
+      opacity: 1;
+    }
+
+    &__icon {
+      color: colors.$white;
+    }
+  }
+  &__icon {
+    cursor: pointer;
+    font-size: clamp(2rem, 4.5vw, 2.5rem);
+  }
 }
