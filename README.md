@@ -1,6 +1,6 @@
 <h1>Hype</h1>
 
-An online store made with Next.js and Sass.
+An online store template made with Next.js and Sass.
 
 <h2>Sass conventions</h2>
 
