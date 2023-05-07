@@ -1,11 +1,13 @@
-import styles from "@/styles/navbar.module.scss";
+import Link from "next/link";
 import ThemeSwitch from "./ThemeSwitch";
 import NavItem from "./NavItem";
+
+import styles from "@/styles/navbar.module.scss";
 
 function Navbar() {
   return (
     <nav className={ styles['navbar'] }>
-      <a href='/' className={ styles['navbar__logo'] }>HY<br/>PE</a>
+      <Link href='/' className={ styles['navbar__logo'] }>HY<br/>PE</Link>
 
       <ul className={ styles['nav_list'] }>
         <ThemeSwitch />

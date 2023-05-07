@@ -14,13 +14,13 @@ function ProductInfo() {
   return (
     <div className={ styles['product__info'] }>
       <div className={ styles['stock'] }>Out of stock</div>
-      <h1 className={ `${styles['product__info__title']} text` }>Batman's watch</h1>
+      <h1 className={ `${styles['product__info__title']} text` }>Batman&apos;s watch</h1>
       <h1 className={ `${styles['product__info__title']} text` }>$5</h1>
       <p 
         className={ `${styles['product__info__description']} text 
         ${ theme === 'light' && styles['product__info__description--weight-regular'] }` }
       >
-        Make a statement with Bateman's Watch - because sometimes, it's all in the details.
+        Make a statement with Bateman&apos;s Watch - because sometimes, it&apos;s all in the details.
       </p>
 
       <div className={ styles['product__info__customization'] }>

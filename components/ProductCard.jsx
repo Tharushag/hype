@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Link from "next/link";
 import Image from "next/image";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
@@ -16,9 +17,9 @@ function ProductCard(props) {
 
   return (
     <div className={ `${styles['product']} ${styles['product--hover']}` }>
-      <a href='/products' className={ styles['product__link'] }> 
+      <Link href='/products' className={ styles['product__link'] }> 
         <Image src={ img } className={ `${styles['product__image']} non-draggable` } alt="Product image" priority />
-      </a> 
+      </Link> 
       <div className={ `${styles['product__info']} ${styles['product__info--open']}` }>
         <p className={ styles['product__info__text'] }>{ price }</p>
 

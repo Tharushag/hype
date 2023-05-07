@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Button from '@mui/material/Button';
 
 import styles from "@/styles/cart.module.scss";
@@ -20,9 +21,9 @@ function TotalCard() {
         <p>Total</p>
         <p>$10.50</p>
       </div>
-      <a href='/checkout' className={ styles['cart_total__checkout_link'] }>
+      <Link href='/checkout' className={ styles['cart_total__checkout_link'] }>
         <Button variant="contained" className={`${styles['cart_total__checkout_btn']} checkout_btn`}>Checkout</Button>
-      </a>
+      </Link>
     </div>
   );
 }

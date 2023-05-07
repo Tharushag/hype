@@ -26,7 +26,7 @@ function BillingInfoForm() {
   useEffect(() => {
     let total = Object.values(completedAmount).reduce((accumulator, currentValue) => accumulator + currentValue);
     setProgress(total);
-  }, [completedAmount]);
+  }, [completedAmount, setProgress]);
 
   function handleProgress(name, value) {
     let completePoints = 0;
