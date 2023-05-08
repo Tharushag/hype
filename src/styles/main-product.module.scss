@@ -46,18 +46,17 @@
     font-size: 1rem !important;
     font-weight: font.$regular !important;
     gap: .5rem !important;
-    margin-bottom: 2rem;
     text-transform: none !important;
     transition: none !important;
     width: fit-content !important;
   }
 
   &__arrow {
-    transition: transform 400ms;
+    transition: transform 400ms !important;
   }
 
   &__buy-hover:hover > &__arrow {
-    transform: translateX(5px);
+    transform: translateX(5px) !important;
   }
 }
 
@@ -87,7 +86,8 @@
     }
 
     &__buy {
-      font-size: clamp(.8rem, 1.5vw, 1rem);
+      font-size: clamp(.8rem, 1.5vw, 1rem) !important;
+      margin-bottom: clamp(2rem, 6vw, 4rem) !important;
     }
   }
 }
